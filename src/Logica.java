@@ -8,16 +8,12 @@ import processing.core.PApplet;
 public class Logica {
 
 	private PApplet app;
-	private ArrayList<Persona> personaA;
 	private LinkedList<Persona> personaL;
-	private HashSet<Persona> personaH;
 	private TreeSet<Persona> personaT;
 
 	public Logica(PApplet app) {
 		this.app = app;
-		personaA = new ArrayList<Persona>();
 		personaL = new LinkedList<Persona>();
-		personaH = new HashSet<Persona>();
 		personaT = new TreeSet<Persona>();
 		readText();
 
@@ -25,53 +21,57 @@ public class Logica {
 
 	public void readText() {
 
-		// creo un arreglo de Strings en donde voy a almacenar las lineas del
-		// txt "usuarios"
-		String[] usuarios = app.loadStrings("../data/usuarios.txt");
-
-		// recorro mi arreglo de Strings
+//		String[] usuarios = app.loadStrings("../data/usuarios.txt");
+//		for (int i = 0; i < usuarios.length; i++) {
+//			String[] datosU = usuarios[i].split(":");
+//		}
+//
+//		String[] informacion = app.loadStrings("../data/informacion.txt");
+//		for (int i = 0; i < informacion.length; i++) {
+//			String[] datosI = informacion[i].split(":");
+//			float[] datosInfo = new float[datosI.length];
+//			for (int j = 0; j < datosI.length; j++) {
+//				datosInfo[i] = Float.parseFloat(datosI[i]);
+//			}
+//		}
+//
+//		String[] tonos = app.loadStrings("../data/tonos.txt");
+//		for (int i = 0; i < tonos.length; i++) {
+//			String[] datosT = tonos[i].split(":");
+//			int[] datosTono = new int[datosT.length];
+//			for (int j = 0; j < datosT.length; j++) {
+//				datosTono[i] = Integer.parseInt(datosT[i]);
+//			}
+//		}
+		
+		String[]usuarios=app.loadStrings("../data/usuarios.txt");
+		String[]informacion=app.loadStrings("../data/informacion.txt");
+		String[]tonos=app.loadStrings("../data/tonos.txt");
+		
 		for (int i = 0; i < usuarios.length; i++) {
-			// voy a crear un nuevo arreglo de Strings en donde voy a guardar la
-			// información de "usuarios" separada por ":"
-			String[] datosU = usuarios[i].split(":");
-		}
-
-		// creo un arreglo de Strings en donde voy a almacenar las lineas del
-		// txt "información"
-		String[] informacion = app.loadStrings("../data/informacion.txt");
-		// recorro mi nuevo arreglo de Strings
-		for (int i = 0; i < informacion.length; i++) {
-			// nuevo arreglo de Strings en donde voy a almacenar la informacion
-			// de "informacion" separada por ":"
-			String[] datosI = informacion[i].split(":");
-			// ahora voy a guardar los datos separados en un nuevo arreglo
-			int[] datosInfo = new int[datosI.length];
+			String[]datosU=usuarios[i].split(":");
+			String[]datosI=informacion[i].split(":");
+			String[]datosT=tonos[i].split(":");
+			
+			float[]datosInfo=new float[informacion.length];
 			for (int j = 0; j < datosI.length; j++) {
-				datosInfo[i] = Integer.parseInt(datosI[i]);
+				datosInfo[j]=Float.parseFloat(datosI[j]);
 			}
-		}
-
-		// creo un arreglo de Strings en donde voy a almacenar las lineas del
-		// archivo txt "tonos"
-
-		String[] tonos = app.loadStrings("../data/tonos.txt");
-
-		// recorro mi nuevo arreglo
-		for (int i = 0; i < tonos.length; i++) {
-			// creo un arreglo de Strings en donde almaceno los datos de "tonos"
-			// separados por ":"
-			String[] datosT = tonos[i].split(":");
-			// guardo los datos de "tono" separados en un nuevo arreglo,esta vez
-			// de int
-			int[] datosTono = new int[datosT.length];
+			
+			int[]datosTono=new int[tonos.length];
 			for (int j = 0; j < datosT.length; j++) {
-				datosTono[i] = Integer.parseInt(datosT[i]);
+				datosTono[j]=Integer.parseInt(datosT[j]);
 			}
+		
+		
+		personaL.add(new Persona(app,datosU[0], datosU[1], datosInfo[0], datosInfo[1], datosInfo[2], datosTono[0], datosTono[1], datosTono[2], 100, i+100));
 		}
+		
 
 	}
 
 	public void pintar() {
+
 
 	}
 
