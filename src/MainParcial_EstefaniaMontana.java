@@ -17,7 +17,7 @@ public class MainParcial_EstefaniaMontana extends PApplet {
 	}
 
 	public void draw() {
-		background(255);
+		background(0);
 		logica.pintar();
 	}
 	
