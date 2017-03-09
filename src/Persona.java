@@ -5,7 +5,7 @@ public class Persona implements Comparable<Persona> {
 	private PApplet app;
 	private String nombre, apellido;
 	private float cedula, edad, peso;
-	private int r, g, b, x, y;
+	private int r, g, b, x, y, canales;
 
 	public Persona(PApplet app, String nombre, String apellido, float cedula, float edad, float peso, int r, int g,
 			int b) {
@@ -20,7 +20,9 @@ public class Persona implements Comparable<Persona> {
 		this.b = b;
 		this.x = x;
 		this.y = y;
+		canales = r + g + b;
 	}
+
 
 	public void pintar(int x, int y) {
 		app.textSize(30);
@@ -58,6 +60,14 @@ public class Persona implements Comparable<Persona> {
 
 	public void setPeso(float peso) {
 		this.peso = peso;
+	}
+	
+	public int getCanales() {
+		return canales;
+	}
+
+	public void setCanales(int canales) {
+		this.canales = canales;
 	}
 
 	public int compareTo(Persona a) {

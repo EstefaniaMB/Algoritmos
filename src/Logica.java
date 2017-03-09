@@ -72,9 +72,11 @@ public class Logica {
 			personaI.clear();
 			personaI.addAll(personaT);
 			Collections.sort(personaI, new CompPeso());
+			Collections.reverse(personaI);
 		}
 		if (app.key == '4') {
-			Collections.sort(personaI);
+			Collections.sort(personaI, new CompCanales());
+//			Collections.shuffle(personaI);
 		}
 
 	}
