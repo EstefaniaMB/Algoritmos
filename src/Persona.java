@@ -23,6 +23,7 @@ public class Persona implements Comparable<Persona> {
 	}
 
 	public void pintar(int x, int y) {
+		app.textSize(30);
 		app.fill(r, g, b);
 		app.text(nombre + " " + apellido + ", " + cedula + ", " + edad + ", " + peso, x, y);
 	}

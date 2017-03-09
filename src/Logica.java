@@ -43,6 +43,8 @@ public class Logica {
 
 			personaI.add(new Persona(app, datosU[0], datosU[1], datosInfo[0], datosInfo[1], datosInfo[2], datosTono[0],
 					datosTono[1], datosTono[2]));
+			personaT.add(new Persona(app, datosU[0], datosU[1], datosInfo[0], datosInfo[1], datosInfo[2], datosTono[0],
+					datosTono[1], datosTono[2]));
 		}
 
 	}
@@ -65,6 +67,14 @@ public class Logica {
 		}
 		if (app.key == '2') {
 			Collections.sort(personaI, new CompPeso());
+		}
+		if (app.key == '3') {
+			personaI.clear();
+			personaI.addAll(personaT);
+			Collections.sort(personaI, new CompPeso());
+		}
+		if (app.key == '4') {
+			Collections.sort(personaI);
 		}
 
 	}
